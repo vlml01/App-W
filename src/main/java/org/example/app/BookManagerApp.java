@@ -241,12 +241,16 @@ public class BookManagerApp extends Application {
                     authorCountryCombo.getItems().add(country);
                 }
 
-                Author author = new Author(name, country);
-                if (!authors.contains(author)) {
-                    authors.add(author);
-                    authorCombo.getItems().add(author);
+                Author author;
+                if (countryName.equalsIgnoreCase("Россия")) {
+                    author = new RussianAuthor(name, country);
+                } else {
+                    author = new ForeignAuthor(name, country);
                 }
+                authors.add(author);
+                authorCombo.getItems().add(author);
             });
+
         });
     }
 

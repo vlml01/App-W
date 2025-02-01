@@ -1,6 +1,6 @@
 package org.example.app;
 import java.util.UUID;
-public class Genre {
+public class Genre extends Description{
     private UUID genre_id;
     private String GenreName;
 
@@ -17,6 +17,10 @@ public class Genre {
         return GenreName;
     }
 
+    @Override
+    public String descriptor() {
+        return "Жанр: " + GenreName;
+    }
     @Override
     public String toString(){return GenreName;}
 }

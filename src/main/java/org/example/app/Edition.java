@@ -2,7 +2,7 @@ package org.example.app;
 
 import java.util.UUID;
 
-public class Edition {
+public class Edition extends Description {
     private UUID edition_id;
     private Work work;
     private Publisher publisher;
@@ -25,6 +25,11 @@ public class Edition {
 
     public Publisher getPublisher() {
         return publisher;
+    }
+
+    @Override
+    public String descriptor() {
+        return "Издание: " + work.getTitle() + ", Издательство: " + publisher.getPublisherName() + ", Тираж: " + printingQuantity;
     }
 
     @Override

@@ -1,10 +1,10 @@
 package org.example.app;
 import java.util.UUID;
 
-public class Author {
+abstract class Author extends Description{
     private UUID author_id;
     private String name;
-    private Country country;
+    protected Country country;
 
     public Author(String name, Country country) {
         this.author_id = UUID.randomUUID();
@@ -14,7 +14,12 @@ public class Author {
 
     public UUID getId() {return author_id;}
     public String getName() {return name;}
+    public abstract String getCountryName();
 
+    @Override
+    public String descriptor() {
+        return "Автор: Имя автора"  + ", Страна: Страна автора" ;
+    }
     public Country getCountry() {return country;}
 
     @Override

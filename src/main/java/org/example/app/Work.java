@@ -2,7 +2,7 @@ package org.example.app;
 
 import java.util.UUID;
 
-public class Work {
+public class Work extends Description{
     private UUID work_id;
     private String title;
     private Author author;
@@ -30,7 +30,10 @@ public class Work {
     public Language getLanguage() {
         return language;
     }
-
+    @Override
+    public String descriptor() {
+        return "Название: " + title + ", Автор: " + author.getName() + ", Жанр: " + genre.getGenreName()+ ", Язык: " + language.getLanguageName();
+    }
     @Override
     public String toString() {
         return title + " by " + author.getName() + ", Genre: " + genre.getGenreName() + ", Language: " + language.getLanguageName();
